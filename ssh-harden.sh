@@ -82,6 +82,11 @@ function sec_conf_SSH()	    {
 	echo "[+] Set PrintLastLog Parameter"
 
 
+	sed -i '/Protocol/d'  /etc/ssh/sshd_config   	    
+	sed -i '$a\Protocol 2'  /etc/ssh/sshd_config
+	echo "[+] Set Protocol 2 Parameter"
+
+
 	systemctl reload sshd.service
 
 }
